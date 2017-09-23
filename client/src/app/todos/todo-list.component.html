@@ -4,16 +4,18 @@
         <!-- The names todoOnwer and userAge, different from searchOwner and searchAge, are being
         used here only to illustrate that these inputs are not necessarily explicitly referencable from within
         the typescript. Unless made to do so by defining a userName variable within this component's typescript file-->
-        <input #input type="text" placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
+        <input #input type="string" placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
         <input #input type="boolean" placeholder="Filter by status" (input)="todoStatus = $event.target.value">
+        <input #input type= "string" placeholder="Filter by content" (input)="todoBody = $event.target.value">
+        <input #input type= "string" placeholder="Filter by category" (input)="todoCategory = $event.target.value">
 
     </li>
     <li id="title" class="list-group-item list-group-item-info">Todo Owner</li>
 </ul>
 
 <ul class="list-group" *ngIf="todos; else todosError">
-    <li id="users" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus)" class="list-group-item">
-        {{ todo.owner }}'s todo has status {{ todo.status }}
+    <li id="users" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus,todoBody, todoCategory)" class="list-group-item">
+        {{ todo.owner }}'s {{todo.category}} todo has status {{ todo.status }} and body {{todo.body}}
     </li>
 </ul>
 <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->

@@ -22,7 +22,7 @@ export class TodoListComponent implements OnInit {
 
     }
 
-    public filterTodos(searchOwner: string, searchStatus: boolean): Todo[] {
+    public filterTodos(searchOwner: string, searchStatus: boolean, searchBody: string, searchCategory: string): Todo[] {
 
         this.filteredTodos = this.todos;
 
@@ -34,12 +34,30 @@ export class TodoListComponent implements OnInit {
                 return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
             });
         }
+        //https://material.angularjs.org/latest/demo/select
 
         //Filter by status
         if (searchStatus != null) {
             this.filteredTodos = this.filteredTodos.filter(todo=> {
                 return !searchStatus|| todo.status == searchStatus;
             });
+        }
+
+        //Filter by Body
+        if (searchBody != null){
+            searchBody = searchBody.toLocaleLowerCase();
+
+            this.filteredTodos = this.filteredTodos.filter( todo => {
+                return !searchBody || todo.body.toLocaleLowerCase().indexOf(searchBody) !== -1;
+            })
+        }
+
+        if (searchCategory != null){
+            searchCategory = searchCategory.toLocaleLowerCase();
+
+            this.filteredTodos = this.filteredTodos.filter(todo => {
+                return !searchCategory || todo.category.toLocaleLowerCase().indexOf(searchCategory) !== -1;
+            })
         }
 
         return this.filteredTodos;
