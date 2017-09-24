@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TodoListService} from "./todo-list.service";
 import {Todo} from "./todo";
+import {FormsModule} from "@angular/forms";
 
 @Component({
     selector: 'todo-list-component',
