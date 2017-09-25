@@ -24,29 +24,54 @@ describe('angular-spark-lab', () => {
         page = new TodoPage();
     });
 
-    it('should get and highlight Todo Name attribute ', () => {
+    it('should get and highlight Todo Owner attribute ', () => {
         page.navigateTo();
-        expect(page.getTodoTitle()).toEqual('Todo Name');
+        
+        expect(page.getTodoTitle()).toEqual('Todo Owner');
     });
 
-    it('should type something in filer name box and check that it returned correct element', () => {
+    /*
+    it('should type something in filer owner box and check that it returned correct element', () => {
         page.navigateTo();
-        page.typeAName("Lynn");
-        expect(page.getFirstTodo()).toEqual("Lynn Ferguson is 25 years old");
+        page.typeAnOwner("Lynn");
+        
+        expect(page.getFirstTodo()).toEqual("Lynn Ferguson is da one");
     });
-
-    it('should click on the age 27 times and return 3 elements then ', () => {
+*/
+    /*fill in proper 'expect'
+    it('should type/click something in filter status box and check that it returned correct element', () => {
         page.navigateTo();
-        page.getTodoByAge();
-        for (let i = 0; i < 27; i++) {
+        page.getTodoByStatus("true");
+        
+       expect(page.getFirstTodo()).toEqual("Blanche has to fill in the correct test parameter");
+        }                
+    });
+   */
+    /*fill in proper 'expect'
+    it('should type something in filter body box and check that it returned correct element', () => {
+        page.navigateTo();
+        page.getTodoByBody("Aliqua esse aliqua");
+        
+        expect(page.getFirstTodo()).toEqual("Blanche 
+         });
+    */
+    it('should type something in filter category box and check that it returned correct element', () => {
+        page.navigateTo();
+        page.getTodoByCategory("video games");
+        expect(page.getFirstTodo()).toEqual("Blanche 
+
+    });
+        
+/* need to implement limit and determine between input or clicks, fill in proper 'expect'
+    it('should click on limit 7 times and return 7 elements then', () => {
+        page.navigateTo();
+        page.getTodosByLimit();
+        for (let i = 0; i < 7; i++) {
             page.selectUpKey();
         }
 
-        expect(page.getFirstTodo()).toEqual("Stokes Clayton is 27 years old");
-
-        page.typeAName("Merrill");
-
-        expect(page.getFirstTodo()).toEqual("Merrill Parker is 27 years old");
+        expect(page.getFirstTodo()).toEqual("Blanche 
 
     });
+    */
 });
