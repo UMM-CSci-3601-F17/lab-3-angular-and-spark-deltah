@@ -26,26 +26,48 @@ export class TodoPage {
         return title;
     }
 
-    typeAName(name: string) {
+    typeAnOwner(owner: string) {
         let input = element(by.tagName('input'));
         input.click();
-        input.sendKeys(name);
+        input.sendKeys(owner);
     }
 
     selectUpKey() {
         browser.actions().sendKeys(Key.ARROW_UP).perform();
     }
-
-    getTodoByAge() {
+/* Need to determine if we will be inputting string or not
+    getTodoByStatus(status: string) {
         let input = element(by.tagName('input'));
         input.click();
         input.sendKeys(Key.TAB);
     }
-
+*/
+    
+      getTodoByBody(body: string) {
+        let input = element(by.tagName('input'));
+        input.click();
+        input.sendKeys(Key.TAB, Key.TAB, body);
+    }
+    
+     getTodoByCategory(category: string) {
+        let input = element(by.tagName('input'));
+        input.click();
+        input.sendKeys(Key.TAB, Key.TAB, Key.TAB, category);
+    }
+    
+    /* need to make sure limit is implemented first    
+    getTodosByLimit() {
+        let input = element(by.tagName('input'));
+        input.click();
+        input.sendKeys(Key.TAB, Key.TAB, Key.TAB, Key.TAB);
+    }
+    */
+    
     getFirstTodo() {
         let todo = element(by.id('todos')).getText();
         this.highlightElement(by.id('todos'));
 
         return todo;
     }
+
 }
