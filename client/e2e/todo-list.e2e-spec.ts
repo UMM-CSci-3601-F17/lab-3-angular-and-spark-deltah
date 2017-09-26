@@ -5,6 +5,7 @@ import {browser, protractor} from 'protractor';
 
 //https://hassantariqblog.wordpress.com/2015/11/09/reduce-speed-of-angular-e2e-protractor-tests/
 
+
 describe('angular-spark-lab', () => {
     let page: TodoPage;
 
@@ -12,10 +13,12 @@ describe('angular-spark-lab', () => {
         page = new TodoPage();
     });
 
-    it('should get and highlight Todo Name attribute ', () => {
+    it('should get and highlight Todo Owner attribute ', () => {
         page.navigateTo();
+
         expect(page.getTodoTitle()).toEqual('Todo Owner');
     });
+
 
     it('should type something in filter name box and check that it returned correct element', () => {
         page.navigateTo();
@@ -25,6 +28,12 @@ describe('angular-spark-lab', () => {
         expect(page.getFirstTodo()).not.toContain("Workman")
         expect(page.getFirstTodo()).not.toContain("Barry")
         expect(page.getFirstTodo()).not.toContain("Dawn")
+    });
+
+    it('should type something in filter category box and check that it returned correct element', () => {
+        page.navigateTo();
+        page.typeTodoCategory("video games");
+        expect(page.getFirstTodo()).toContain("Ipsum esse est");
     });
 
     it("should type something unique in filter content box and check that it returned the correct element", () =>{
@@ -47,4 +56,15 @@ describe('angular-spark-lab', () => {
         page.typeTodoCategory("invalid");
         expect(page.getIfNoTodos());
     });
+
+    it("should select showing done and undone todos and then return to showing both", ()=>{
+        page.navigateTo();
+        page.setStatusShown("Done");
+        expect(page.getFirstTodo()).toContain ("Ullamco irure laborum");
+        page.setStatusShown("Undone");
+        expect(page.getFirstTodo()).toContain ("In sunt ex non tempor");
+        page.setStatusShown("Both");
+        expect(page.getFirstTodo()).toContain ("In sunt ex non tempor");
+    });
 });
+

@@ -21,14 +21,14 @@
         </div>
 
         <div class="btn-group" data-toggle="buttons" id="FilterStatusInput">
-            <label class="btn btn-secondary">
-                <input #input type="radio" name="options" id="StatusOption1" (input) = "todoStatus = true"> Show Done
+            <label class="btn btn-secondary"  id="StatusOptionDone">
+                <input #input id="StatusInputDone" type="radio" name="options" (input) = "todoStatus = true"> Show Done
             </label>
-            <label class = "btn btn-secondary">
-                <input #input type="radio" name="options" id="StatusOption2" (input)="todoStatus = false" > Show Undone
+            <label class = "btn btn-secondary" id="StatusOptionUndone">
+                <input #input id="StatusInputUndone" type="radio" name="options"  (input)="todoStatus = false" > Show Undone
             </label>
-            <label class = "btn btn-secondary">
-                <input #input type = "radio" name="options" id="StatusOption3" (input)="todoStatus = null" > Show Both
+            <label class = "btn btn-secondary" id="StatusOptionBoth">
+                <input #input id="StatusInputBoth" type = "radio" name="options"  (input)="todoStatus = null" > Show Both
             </label>
         </div>
 

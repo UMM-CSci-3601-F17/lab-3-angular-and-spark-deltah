@@ -26,6 +26,7 @@ export class TodoPage {
         return title;
     }
 
+
     typeTodoOwner(name: string) {
         let input = element(by.id('FilterOwnerInput'));
         input.click();
@@ -38,15 +39,20 @@ export class TodoPage {
         input.sendKeys(category);
     }
 
-    selectUpKey() {
-        browser.actions().sendKeys(Key.ARROW_UP).perform();
-    }
 
     typeTodoContent(term: string) {
         let input = element(by.id('FilterContentInput'));
         input.click();
         input.sendKeys(term);
     }
+
+    /* need to make sure limit is implemented first
+    getTodosByLimit() {
+        let input = element(by.tagName('input'));
+        input.click();
+        input.sendKeys(Key.TAB, Key.TAB, Key.TAB, Key.TAB);
+    }
+    */
 
     getFirstTodo() {
         let todo = element(by.id('todos')).getText();
@@ -62,6 +68,13 @@ export class TodoPage {
         }
 
     }
+
+    //this test fails, but I do not know how to make webdriver click a radio button.
+    setStatusShown(option: string){
+        let button = element(by.id("StatusInput" + option));
+        button.click();
+
+    }
 /*
 doe not yet work
     getNthTodo(nth: number){
@@ -70,5 +83,9 @@ doe not yet work
         return todo;
     }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> page-setup
     */
 }
