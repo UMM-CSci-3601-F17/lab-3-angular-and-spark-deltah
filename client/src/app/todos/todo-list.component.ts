@@ -35,25 +35,27 @@ export class TodoListComponent implements OnInit {
                 return !searchOwner || todo.owner.toLowerCase().indexOf(searchOwner) !== -1;
             });
         }
-        //https://material.angularjs.org/latest/demo/select
+
 
         //Filter by status
         if (searchStatus != null) {
-            this.filteredTodos = this.filteredTodos.filter(todo=> {
-                return !searchStatus|| todo.status == searchStatus;
-            });
-        }
 
-        //Filter by Body
-        if (searchBody != null){
+                this.filteredTodos = this.filteredTodos.filter(todo => {
+                    return todo.status == searchStatus;
+                })
+            }
+
+
+//Filter by Body
+        if (searchBody != null) {
             searchBody = searchBody.toLocaleLowerCase();
 
-            this.filteredTodos = this.filteredTodos.filter( todo => {
+            this.filteredTodos = this.filteredTodos.filter(todo => {
                 return !searchBody || todo.body.toLocaleLowerCase().indexOf(searchBody) !== -1;
             })
         }
 
-        if (searchCategory != null){
+        if (searchCategory != null) {
             searchCategory = searchCategory.toLocaleLowerCase();
 
             this.filteredTodos = this.filteredTodos.filter(todo => {

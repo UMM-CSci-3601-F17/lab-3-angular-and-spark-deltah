@@ -27,13 +27,13 @@ export class TodoPage {
     }
 
     typeTodoOwner(name: string) {
-        let input = element(by.id('filterOwnerField'));
+        let input = element(by.id('FilterOwnerInput'));
         input.click();
         input.sendKeys(name);
     }
 
     typeTodoCategory(category: string) {
-        let input = element(by.id('filterCategoryField'));
+        let input = element(by.id('FilterCategoryInput'));
         input.click();
         input.sendKeys(category);
     }
@@ -43,7 +43,7 @@ export class TodoPage {
     }
 
     typeTodoContent(term: string) {
-        let input = element(by.id('filterContentField'));
+        let input = element(by.id('FilterContentInput'));
         input.click();
         input.sendKeys(term);
     }

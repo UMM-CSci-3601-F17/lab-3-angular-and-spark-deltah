@@ -1,21 +1,9 @@
 import {TodoPage} from './todo-list.po';
 import {browser, protractor} from 'protractor';
 
-let origFn = browser.driver.controlFlow().execute;
+// let origFn = browser.driver.controlFlow().execute;
 
 //https://hassantariqblog.wordpress.com/2015/11/09/reduce-speed-of-angular-e2e-protractor-tests/
-browser.driver.controlFlow().execute = function () {
-    let args = arguments;
-
-    // queue 100ms wait between test
-    //This delay is only put here so that you can watch the browser do its' thing.
-    //If you're tired of it taking long you can remove this call
-    //origFn.call(browser.driver.controlFlow(), function () {
-    //  return protractor.promise.delayed(1);
-    //});
-
-    return origFn.apply(browser.driver.controlFlow(), args);
-};
 
 describe('angular-spark-lab', () => {
     let page: TodoPage;
@@ -59,19 +47,4 @@ describe('angular-spark-lab', () => {
         page.typeTodoCategory("invalid");
         expect(page.getIfNoTodos());
     });
-
-/*  it('should click on the age 27 times and return 3 elements then ', () => {
-        page.navigateTo();
-        page.getTodoByAge();
-        for (let i = 0; i < 27; i++) {
-            page.selectUpKey();
-        }
-
-        expect(page.getFirstTodo()).toEqual("Stokes Clayton is 27 years old");
-
-        page.typeAName("Merrill");
-
-        expect(page.getFirstTodo()).toEqual("Merrill Parker is 27 years old");
-    });
-*/
 });
