@@ -71,7 +71,7 @@ export class TodoPage {
 
     //this test fails, but I do not know how to make webdriver click a radio button.
     setStatusShown(option: string){
-        let button = element(by.id("StatusInput" + option));
+        let button = element(by.id("StatusOption" + option));
         button.click();
 
     }

@@ -40,7 +40,9 @@
 
 <ul class="list-group" *ngIf="todos; else todosError">
     <li id="todos" *ngFor="let todo of this.filterTodos(todoOwner, todoStatus,todoBody, todoCategory)" class="list-group-item">
-        {{ todo.owner }}'s {{todo.category}} todo has status {{ todo.status }} and body {{todo.body}}
+        <h2>{{ todo.owner }}</h2>
+        <p>Category: {{todo.category}}| Done: {{todo.status}}</p>
+         {{todo.body}}
     </li>
 </ul>
 <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
